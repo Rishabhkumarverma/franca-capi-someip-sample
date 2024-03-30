@@ -1,0 +1,44 @@
+{
+    "unicast" : "172.18.0.3",
+    "logging" :
+    {
+        "level" : "trace",
+        "console" : "true",
+        "file" : { "enable" : "false", "path" : "vsomeip.log" },
+        "dlt" : "false"
+    },
+    "applications" : 
+    [
+        {
+            "name" : "routingmanagerd",
+            "id" : "0x0022"
+        },
+        {
+            "name" : "service-sample",
+            "id" : "0x1277"
+        }
+    ],
+    "services" :
+    [
+        {
+            "service" : 4660,
+            "instance" : 22135,
+            "reliable" : { "port" : "31000", "enable-magic-cookies" : "false" }
+        },
+        {
+            "service" : 4660,
+            "instance" : 22136,
+            "reliable" : { "port" : "31000", "enable-magic-cookies" : "false" }
+        },
+        {
+            "service" : 4660,
+            "instance" : 22137,
+            "reliable" : { "port" : "31000", "enable-magic-cookies" : "false" }
+        }
+    ],
+    "routing" : "routingmanagerd",
+    "service-discovery" :
+    {
+        "enable" : "true"
+    }
+}
