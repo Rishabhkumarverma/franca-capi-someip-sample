@@ -1,0 +1,65 @@
+import "platform:/plugin/org.genivi.commonapi.someip/deployment/CommonAPI-4-SOMEIP_deployment_spec.fdepl"
+
+import "ML.fidl"
+
+define org.genivi.commonapi.someip.deployment for interface com.ford.rnd.ML {
+  SomeIpServiceID = 4660
+
+  attribute name {
+    SomeIpGetterID = 30000
+    SomeIpSetterID = 30001
+    SomeIpNotifierID = 30002
+    SomeIpNotifierEventGroups = { 17746 }
+    SomeIpAttributeReliable = true
+  
+    
+  }
+
+  method sayHello {
+    SomeIpMethodID = 32000
+    SomeIpReliable = true
+  }
+
+  method howMuch {
+    SomeIpMethodID = 32001
+    SomeIpReliable = true
+  }
+
+  method getDeviceType {
+    SomeIpMethodID = 32002
+    SomeIpReliable = true
+  }
+
+  method getConnectionType {
+    SomeIpMethodID = 32003
+    SomeIpReliable = true
+  }
+
+  method getLastPerson {
+    SomeIpMethodID = 32004
+    SomeIpReliable = true
+  }
+
+  method getStaff {
+    SomeIpMethodID = 32005
+    SomeIpReliable = true
+  }
+
+  method getCountries {
+    SomeIpMethodID = 32006
+    SomeIpReliable = true
+  }
+
+  broadcast getOut {
+    SomeIpEventID = 34000
+    SomeIpReliable = true
+    SomeIpEventGroups = { 17746 }
+  }
+}
+
+define org.genivi.commonapi.someip.deployment for provider as FordRndService {
+  instance com.ford.rnd.ML {
+    InstanceId = "com.ford.rnd.ML"
+    SomeIpInstanceID = 22135
+  }
+}
