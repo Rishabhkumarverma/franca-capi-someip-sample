@@ -1,0 +1,27 @@
+project(Libraries)
+
+set(COMMONAPI_PATH ${COMMONAPI})
+set(FIDL_PATH ${FIDL})
+
+find_package(CommonAPI 3.2.3 REQUIRED)
+find_package(vsomeip3 3.4.10 REQUIRED)
+find_package(CommonAPI-SomeIP 3.2.3 REQUIRED)
+
+include_directories(
+  ${CMAKE_CURRENT_BINARY_DIR}
+  ${COMMONAPI_INCLUDE_DIRS}
+  ${VSOMEIP_INCLUDE_DIRS}
+  ${COMMONAPI_SOMEIP_INCLUDE_DIRS}
+)
+
+set(CMAKE_MODULE_PATH ${MODULES_PATH})
+include(IpcMacro)
+
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
+include(ML)
+include(Buttons)
+
+install(TARGETS ML Buttons
+  LIBRARY DESTINATION ${CMAKE_BINARY_DIR}/build/lib
+  PERMISSIONS OWNER_READ OWNER_WRITE
+)

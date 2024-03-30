@@ -1,0 +1,22 @@
+package com.ford.rnd
+
+typeCollection MLTypes {
+  version { major 1 minor 0 }
+
+  enumeration ConnectionType {
+    WIFI
+    BT
+    USB
+  }
+
+  struct Person {
+    String name
+    Int32 id
+  }
+
+  array Staff of Person
+
+  map Countries {
+    Int32 to String
+  }
+}

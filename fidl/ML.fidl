@@ -1,0 +1,69 @@
+package com.ford.rnd
+
+import com.ford.rnd.* from "MLTypes.fidl"
+
+interface ML {
+  version {major 1 minor 0}
+
+  enumeration DeviceType {
+      PHONE
+      TABLET
+      LAPTOP
+  }
+
+  attribute String name
+
+  method sayHello {
+    in {
+      String name
+    }
+    out {
+      String message
+    }
+  }
+
+  method howMuch {
+    out {
+      UInt64 currency
+    }
+  }
+
+  method getDeviceType {
+    out {
+      DeviceType deviceType
+    }
+  }
+
+  method getConnectionType {
+      out {
+          MLTypes.ConnectionType connType
+      }
+  }
+
+  method getLastPerson {
+      out {
+          MLTypes.Person person
+      }
+  }
+
+  method getStaff {
+      in {
+          String name
+      }
+      out {
+          MLTypes.Staff staff
+      }
+  }
+
+  method getCountries {
+      out {
+          MLTypes.Countries countries
+      }
+  }
+
+  broadcast getOut {
+    out {
+      String phrase
+    }
+  }
+}
