@@ -12,7 +12,7 @@ endif(${CMAKE_SYSTEM_NAME} MATCHES "QNX")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 
-set(COMMONAPI /package)
+set(COMMONAPI /usr/local)
 set(FIDL ${CMAKE_SOURCE_DIR}/fidl)
 
 set(MODULES_PATH ${CMAKE_SOURCE_DIR}/cmake_modules)
@@ -26,7 +26,7 @@ string(REGEX REPLACE
 )
 set(ENV{PATH} ${NEW_PATH})
 
-find_package(Java 1.8)
+find_package(Java 11.0)
 
 install(DIRECTORY config
     DESTINATION ${CMAKE_BINARY_DIR}/build)
